@@ -1,0 +1,66 @@
+{%extends "base.html"%}
+{% block content%}
+<form method="POST">
+  <div class="jumbotron">
+      <span style="font-size: x-large; font-weight: bolder;">Golden Eagles</span> 
+      <span style="font-size: medium; font-weight: bold;">is a technology company operating a wide range of businesses. With the company expansion, the demand for employees is significantly increasing. To shortlist suitable candidates effectively and efficiently, the company developed an </span> <span style="font-size:x-large; font-weight: bolder;">Automatic Recruiting Assistant (ARA)</span> <span style="font-size: medium; font-weight: bold;"> to solve the dilemma. ARA uses historical recruiting data to train the model and make a prediction to help the decision-making process. Since every machine learning model has errors, the model performance becomes crucial. This survey aims to investigate the satisfaction rate based on different model performance.</span>
+      <br/>
+      <br/>
+      <span style="font-size: larger; font-weight: bolder;">Bar Chart</span>
+      <span>is the fairness of ARA. Total applicants are signed in</span><span style="color:blue; font-size:larger"> Blue.</span> <span>The number of shortlisted candidates is defined in</span><span style="color:red; font-size:larger"> Red.</span>
+      <br/>
+      <br/>
+      <span style="font-size: larger; font-weight: bolder;">Venn Diagram</span>
+      <span>shows the interaction between</span> <span style="color:cornflowerblue; font-size:larger"> HR recommanded</span> <span>and</span> <span style="color:rosybrown; font-size:larger">ARA</span> <span>selected candidates.</span> <span>The common area represents the </span><span style="font-weight: bold; font-size: larger;">performance</span><span> of the model.</span>
+    
+  </div>
+  <h5 style="text-align:center;">This diagram shows the shortlisting outcome of applicants by the Automatic Recruitment Assistant (ARA). After reading this diagram, you will answer questions on it. </h5><br>
+
+    <head>
+      <p style="text-align:center;">
+        <meta charset="utf-8">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['corechart','bar']});
+          google.charts.setOnLoadCallback(drawChart);
+
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Gender', 'Total Applicants', 'Total Applicants Shortlisted'],
+              ['Male', {{applicants[0]}}, {{applicants[1]}}],
+              ['Female', {{applicants[2]}}, {{applicants[3]}}],
+            ]);
+
+            var options = {
+                title: 'Fairness of ARA',
+                is3D: true,
+            };
+
+            var chart = new google.visualization.BarChart(document.getElementById('columnchart_material'));
+
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+          }
+        </script>
+
+
+    </head>
+    <body>
+      <div id="columnchart_material" style="width: 800px; height: 500px;float:left"></div>
+      <div id="picture" style="width:400px;height:250px;float:left">
+        <img src="" id="images" style="width:800px;height:600px">
+      </div>
+      <script type="text/javascript">
+        function loadPicture() {
+           document.getElementById('images').src = '../static/' + '{{applicants[4]}}' + '.png';
+        }
+        loadPicture();
+      </script>
+    </body>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br>
+
+    <p style="text-align:center;">{{ form9.submit9() }}</p>
+  </div>
+</form>
+
+{% endblock %}

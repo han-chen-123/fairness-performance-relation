@@ -1,0 +1,31 @@
+{%extends "base.html"%}
+{% block content%}
+<form method="POST">
+<div class="jumbotron">
+  <img src="../static/fairness0.9.jpg" height="500">
+  <form3 method="POST">
+      <h2> Q1: Overall, female and male applicants are treated fairly by ARA </h2>
+      {{ form3.hidden_tag() }}
+      {{ form3.q1.label }} {{ form3.q1() }}
+      <h2> Q2: I totally trust the shortlisting outcome of Female and Male applicants by the ARA trusted  </h2>
+      {{ form3.q2.label }} {{ form3.q2() }}
+      <h2> Q3: I think the ARA can help recruiters to shortlist applicants </h2>
+      {{ form3.q3.label }} {{ form3.q3() }}
+      <h2> Q4: I can depend on the ARA </h2>
+      {{ form3.q3.label }} {{ form3.q4() }}
+      <h2> Q5: I think the performance of ARA does not need to be improved </h2>
+      {{ form3.q3.label }} {{ form3.q5() }}
+      <h2> Q6: I do trust the ARA </h2>
+      {{ form3.q3.label }} {{ form3.q6() }}
+       <h2> Q7:According to your first impression, make a choice about your satisfication with ARA  </h2>
+      {{ form3.q2.label }} {{ form3.q7() }}
+      <h2> Q8:According to your choice, select your reason: </h2>
+      {{ form3.q3.label }} {{ form3.q8() }}
+  </form3>
+  <br>
+  <br>
+  <br>
+  <p style="text-align:center;">{{ form3.submit3() }}</p>
+</div>
+</form>
+{% endblock %}

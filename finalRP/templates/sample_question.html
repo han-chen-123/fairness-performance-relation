@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+{% block content%}
+<form method="POST">
+<div class="jumbotron">
+  <h1>Sample Question</h1>
+  <h2> Choose your role in this investigation: </h2>
+  <form2 method="POST">
+      {{ form12.hidden_tag() }}
+      {{ form12.q2.label }} {{ form12.q2() }}
+  </form2>
+  <br>
+  <br>
+  <br>
+  <p style="text-align:center;">{{ form12.submit12() }}</p>
+</div>
+</form>
+{% endblock %}
